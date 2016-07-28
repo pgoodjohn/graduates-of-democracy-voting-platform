@@ -1,7 +1,7 @@
 # Graduates of Democracy Online Voting System
 > Online system to determine the roles inside the organization Graduates Of Democracy.
 
-This small web app has been created in order to proceed with the Graduates Of Democracy internal elections. The system has been built in a way such that only who has the email stored in the database and he/she has received a personal code that grants the access.
+This small web app has been created in order to proceed with the Graduates Of Democracy internal elections. The system has been built in a way such that only who has the email stored in the database and has received a personal code is granted the access to the voting platform.
 
 ## Usage example
 
