@@ -32,16 +32,16 @@
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/presidency.php">
 					<div class="form-group">
-						<input type="radio" name="presidency" id="mu-hamid" value="1">
+						<input type="radio" name="presidency" id="mu-hamid" value="1" required>
 						<label for="mu-hamid" class="control-label">Mu-hamid Pathan</label>
 					</div>
 					<div class="form-group">
-						<input type="radio" name="presidency" value="2">
-						<label for="mu-hamid" class="control-label">Kuba Sta</label>
+						<input type="radio" name="presidency" id="kuba" value="2" required>
+						<label for="kuba" class="control-label">Kuba Sta</label>
 					</div>
 					<div class="form-group">
-						<input type="radio" name="presidency" value="3">
-						<label for="mu-hamid" class="control-label">Robert Zielonka</label>
+						<input type="radio" name="presidency" id="robert" value="3" required>
+						<label for="robert" class="control-label">Robert Zielonka</label>
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>			
