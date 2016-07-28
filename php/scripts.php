@@ -215,4 +215,23 @@ function getTreasurerById($Id){
 
 }
 
+function getNameByUserId($UserId){
+  global $con;
+  
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM User WHERE UserId = ?")){
+    /* bind parameters for markers */
+    mysqli_stmt_bind_param($stmt, "s", $UserId);
+    /* execute query */
+    mysqli_stmt_execute($stmt);
+    /* bind result variables */
+    mysqli_stmt_bind_result($stmt, $id);
+    /* fetch value */
+    mysqli_stmt_fetch($stmt);
+  }
+
+  return $id;
+
+}
+
+
 ?>

@@ -31,6 +31,10 @@
 					echo '<p align="center">I\'m sorry, but it seems this user has already voted</p>';
 				}
 				?>
+				<?php if($_GET['err_type'] == 4){
+					echo '<p align="center">I\'m sorry, but the name does not correspond to the one saved in the database!</p>';
+				}
+				?>	
 			</div>
 		</div>
 		<div class="col-sm-2"></div>

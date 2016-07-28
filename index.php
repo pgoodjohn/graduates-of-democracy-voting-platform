@@ -26,6 +26,12 @@
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/login.php">
 					<div class="form-group has-feedback">
+						<label for="name" class="control-label">Insert your name:</label>
+						<input type="text" class="form-control" data-error="Please insert your name" name="name" id="name" required>
+						<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						<div class="help-block with-errors"></div>
+					</div><!--FORM GROUP NAME-->
+					<div class="form-group has-feedback">
 						<label for="email" class="control-label">Insert your email address:</label>
 						<input type="email" class="form-control" data-error="Please insert a valid email address" name="email" id="email" required>
 						<span class="glyphicon form-control-feedback" aria-hidden="true"></span>

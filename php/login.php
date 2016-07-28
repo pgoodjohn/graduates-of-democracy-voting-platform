@@ -1,6 +1,4 @@
 <?php
-
-	include_once("config.php");
 	include_once("scripts.php");
 
 	function logAccess($email){
@@ -28,6 +26,13 @@
 	$UserId = getUserIdByEmail($email);
 
 	echo $UserId . '<br>';
+
+	$name = getNameByUserId($UserId);
+
+	if($name != strtolower($_POST['name'])){
+		header("Location:../error.php?err_type=4");
+		exit;
+	}
 
 	$token = getUniqueIdByUserId($UserId);
 
