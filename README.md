@@ -21,7 +21,7 @@ By changing the config.php and making it point to the needed database it is poss
 
 Pietro Bongiovanni – [@pietrogoodjohn](https://twitter.com/pietrogoodjohn) – pietro@pietrobongiovanni.tech
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Distributed under the MIT license. See ``LICENSE`` for more information.
 
 [https://github.com/pgoodjohn](https://github.com/pgoodjohn/)
 
