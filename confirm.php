@@ -39,8 +39,8 @@
 						<p>Vice-Precident for Internal Communications: <b><?php print_r(getInternalVPById($_SESSION['int-vp']));?></b></p>
 						<p>Vice-President for External Communications: <b><?php print_r(getExternalVPById($_SESSION['ext-vp']));?></b></p>
 						<p>Editor-In-Chief: <b><?php print_r(getEditorInChiefById($_SESSION['editor']));?></b></p>
-						<p>Directors of Communications: <b><?php print_r(getDirectorOfCommunicationsById($_SESSION['editor']));?></b></p>
-						<p>Treasurer: <b><?php print_r(getTreasurerById($_SESSION['editor']));?></b></p>
+						<p>Directors of Communications: <b><?php print_r(getDirectorOfCommunicationsById($_SESSION['communications']));?></b></p>
+						<p>Treasurer: <b><?php print_r(getTreasurerById($_SESSION['treasurer']));?></b></p>
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Confirm</button>			
