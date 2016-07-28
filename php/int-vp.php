@@ -16,6 +16,4 @@ print_r($_SESSION);
 header("Location:../editor.php");
 exit;
 
-
-
 ?>

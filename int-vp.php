@@ -32,19 +32,20 @@
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/int-vp.php">
 					<div class="form-group">
-						<input type="radio" name="int-vp" id="eva" value="1">
-						<label for="Cecilia" class="control-label">Eva Amalija Oreskovic</label>
+						<input type="radio" name="int-vp" id="eva" value="1" required>
+						<label for="eva" class="control-label">Eva Amalija Oreskovic</label>
 					</div>
 					<div class="form-group">
-						<input type="radio" name="int-vp" id="kristjan" value="2">
+						<input type="radio" name="int-vp" id="kristjan" value="2" required>
 						<label for="kristjan" class="control-label">Kristjan Kalve</label>
 					</div>
 					<div class="form-group">
-						<input type="radio" name="int-vp" id="patrik" value="3">
+						<input type="radio" name="int-vp" id="patrik" value="3" required>
 						<label for="patrik" class="control-label">Patrik Bole</label>
 					</div>
 					<div class="modal-footer">
-						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>			
+						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>
+						</form>
 					</div><!--MODAL FOOTER-->
 		</div>
 		<div class="col-sm-2"></div>
