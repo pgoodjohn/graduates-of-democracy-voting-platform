@@ -16,6 +16,4 @@ print_r($_SESSION);
 header("Location:../int-vp.php");
 exit;
 
-
-
 ?>

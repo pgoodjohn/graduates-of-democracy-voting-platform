@@ -32,15 +32,16 @@
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/ext-vp.php">
 					<div class="form-group">
-						<input type="radio" name="ext-vp" id="Cecilia" value="1">
-						<label for="Cecilia" class="control-label">Cecilia Passaniti</label>
+						<input type="radio" name="ext-vp" id="cecilia" value="1" required>
+						<label for="cecilia" class="control-label">Cecilia Passaniti</label>
 					</div>
 					<div class="form-group">
-						<input type="radio" name="ext-vp" id="Margaux" value="2">
+						<input type="radio" name="ext-vp" id="Margaux" value="2" required>
 						<label for="Margaux" class="control-label">Margaux Vidal</label>
 					</div>
 					<div class="modal-footer">
-						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>			
+						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>
+						</form>
 					</div><!--MODAL FOOTER-->
 		</div>
 		<div class="col-sm-2"></div>
