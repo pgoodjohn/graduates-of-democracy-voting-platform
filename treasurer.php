@@ -32,11 +32,11 @@
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/treasurer.php">
 					<div class="form-group">
-						<input type="radio" name="treasurer" id="pavlos" value="1">
+						<input type="radio" name="treasurer" id="pavlos" value="1" required>
 						<label for="pavlos" class="control-label">Pavlos Zoubouloglou</label>
 					</div>
 					<div class="form-group">
-						<input type="radio" name="treasurer" id="luis" value="2">
+						<input type="radio" name="treasurer" id="luis" value="2" required>
 						<label for="luis" class="control-label">Luìs Carvalho</label>
 					</div>
 					<div class="modal-footer">
