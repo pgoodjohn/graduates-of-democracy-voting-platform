@@ -1,6 +1,6 @@
 Database Name: graduatesOfDemocracy
 
-CREATE TABLE `graduatesOfDemocracy`.`User` ( 
+CREATE TABLE `User` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Email` VARCHAR(64) NOT NULL , 
 		`Name` VARCHAR(128) NOT NULL,
@@ -8,37 +8,37 @@ CREATE TABLE `graduatesOfDemocracy`.`User` (
 		`HasVoted` TINYINT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 
-CREATE TABLE `graduatesOfDemocracy`.`Presidency` ( 
+CREATE TABLE `Presidency` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Name` VARCHAR(64) NOT NULL , 
 		`Votes` INT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 
-CREATE TABLE `graduatesOfDemocracy`.`ExternalVicePresidency` ( 
+CREATE TABLE `ExternalVicePresidency` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Name` VARCHAR(64) NOT NULL , 
 		`Votes` INT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 
-CREATE TABLE `graduatesOfDemocracy`.`InternalVicePresidency` ( 
+CREATE TABLE `InternalVicePresidency` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Name` VARCHAR(64) NOT NULL , 
 		`Votes` INT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 
-CREATE TABLE `graduatesOfDemocracy`.`EditorInChief` ( 
+CREATE TABLE `EditorInChief` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Name` VARCHAR(64) NOT NULL , 
 		`Votes` INT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 
-CREATE TABLE `graduatesOfDemocracy`.`DirectorOfCommunications` ( 
+CREATE TABLE `DirectorOfCommunications` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Name` VARCHAR(64) NOT NULL , 
 		`Votes` INT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 
-CREATE TABLE `graduatesOfDemocracy`.`Treasurer` ( 
+CREATE TABLE `Treasurer` ( 
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Name` VARCHAR(64) NOT NULL , 
 		`Votes` INT NOT NULL , 
