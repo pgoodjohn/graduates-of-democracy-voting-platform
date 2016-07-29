@@ -4,7 +4,7 @@ CREATE TABLE `User` (
 		`UserId` INT NOT NULL AUTO_INCREMENT , 
 		`Email` VARCHAR(64) NOT NULL , 
 		`Name` VARCHAR(128) NOT NULL,
-		`Code` VARCHAR(16) NOT NULL , 
+		`Code` VARCHAR(64) NOT NULL , 
 		`HasVoted` TINYINT NOT NULL , 
 		PRIMARY KEY (`UserId`)) ENGINE = InnoDB;
 

@@ -14,7 +14,7 @@
 
 	echo $email . '<br>';
 
-	$code = $_POST['code'];
+	$code = hash('sha512', $_POST['code']);
 
 	echo $code . '<br>';
 

@@ -70,10 +70,11 @@
 
 		echo '<b>Token:</b> ' . $token . '<br>';
 
-		$mailMessage = '<html><body>In order to access the voting page you will need the following credentials:<br>';
+		$mailMessage = '<html><body><p>In order to access the voting page you will need the following credentials:<br>';
 		$mailMessage .= '<b>Name: </b>' . ucwords($name) . '<br>';
 		$mailMessage .= '<b>Email: </b>' . $email . '<br>';
-		$mailMessage .= '<b>Token: </b>' . $token . '<br></body></html>';
+		$mailMessage .= '<b>Token: </b>' . $token . '<br>';
+		$mailMessage .= 'In order to vote, click <a href="bit.ly/graduatesOfDemocracy2016">here</a> or paste the following link in your address bar: <br> bit.ly/graduatesOfDemocracy2016</p></body></html>';
 
 		$mailObject = 'Graduates Of Democracy Online Voting Platform Login Details';
 
@@ -82,8 +83,10 @@
 		$mailHeaders .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
 		mail($email, $mailObject, $mailMessage, $mailHeaders);
+		
+		$encryptedToken = hash('sha512', $token);
 
-		createUserRow($name, $email, $token);
+		createUserRow($name, $email, $encryptedToken);
 		
 		header("Location:../register.php");
 		exit;
