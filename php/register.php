@@ -74,7 +74,7 @@
 		$mailMessage .= '<b>Name: </b>' . ucwords($name) . '<br>';
 		$mailMessage .= '<b>Email: </b>' . $email . '<br>';
 		$mailMessage .= '<b>Token: </b>' . $token . '<br>';
-		$mailMessage .= 'In order to vote, click <a href="bit.ly/graduatesOfDemocracy2016">here</a> or paste the following link in your address bar: <br> bit.ly/graduatesOfDemocracy2016</p></body></html>';
+		$mailMessage .= 'In order to vote, click <a href="bit.ly/graduatesOfDemocracy2016">here</a> or copy the following link in your address bar: <br> bit.ly/graduatesOfDemocracy2016</p></body></html>';
 
 		$mailObject = 'Graduates Of Democracy Online Voting Platform Login Details';
 
