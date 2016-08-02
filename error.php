@@ -35,6 +35,16 @@
 					echo '<p align="center">I\'m sorry, but the name does not correspond to the one saved in the database!</p>';
 				}
 				?>	
+				<?php if($_GET['err_type'] == 5){
+					$now = date("Y-m-d H:i:s");
+					echo '<p align="center">I\'m sorry, but the voting is not open yet!</p>';
+				}
+				?>	
+				<?php if($_GET['err_type'] == 6){
+					$now = date("Y-m-d H:i:s");
+					echo '<p align="center">I\'m sorry, but the voting is already closed!</p>';
+				}
+				?>	
 			</div>
 		</div>
 		<div class="col-sm-2"></div>

@@ -43,6 +43,20 @@
 		exit;
 	}
 
+	$beginningDate = "2016-08-10 06:00:00";
+	$endingDate = "2016-08-14 21:59:59";
+	$now = date("Y-m-d H:i:s");
+
+	if($now < $beginningDate){
+		header("Location:../error.php?err_type=5");
+		exit;
+	}
+
+	if($now > $endingDate){
+		header("Location:../error.php?err_type=6");
+		exit;
+	}
+
 
 	$hasVoted = getHasVotedByUserId($UserId);
 
