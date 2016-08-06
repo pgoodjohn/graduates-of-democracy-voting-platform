@@ -10,6 +10,21 @@
 		file_put_contents($logfile, $txt, FILE_APPEND);
 	}
 
+	$beginningDate = "2016-08-10 06:00:00";
+	$endingDate = "2016-08-14 21:59:59";
+	$now = date("Y-m-d H:i:s");
+
+	if($now < $beginningDate){
+		header("Location:../error.php?err_type=5");
+		exit;
+	}
+
+	if($now > $endingDate){
+		header("Location:../error.php?err_type=6");
+		exit;
+	}
+
+
 	$email = $_POST['email'];
 
 	echo $email . '<br>';
@@ -43,24 +58,11 @@
 		exit;
 	}
 
-	$beginningDate = "2016-08-10 06:00:00";
-	$endingDate = "2016-08-14 21:59:59";
-	$now = date("Y-m-d H:i:s");
-
-	if($now < $beginningDate){
-		header("Location:../error.php?err_type=5");
-		exit;
-	}
-
-	if($now > $endingDate){
-		header("Location:../error.php?err_type=6");
-		exit;
-	}
 
 
 	$hasVoted = getHasVotedByUserId($UserId);
 
-	if($hasVoted == 1){
+	if($hasVoted == 0){
 		//TODO LOG THAT TRIED TO VOTE AGAIN
 		header("Location:../error.php?err_type=3");
 		exit;
