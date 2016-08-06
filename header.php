@@ -13,7 +13,6 @@
 <!--NAVBAR-->
 <!--MAIN NAVIGATION BAR OF THE WEBSITE -->
 <nav class="navbar navbar-default">
-	<script src="css/bootstrap-hover-dropdown.js"></script>
 	<div class="container-fluid"> <!-- NAVBAR RESPONSIVE CONTAINER -->
 		<div class="navbar-header"> <!--NAVBAR HEADER -->
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -22,7 +21,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<myh2 class="brand brand-name navbar-left">
-				<a href="index.php"><img class="img-responsive2" src="pictures/logo.png"></a>
+				<a href="index.php"><img class="img-responsive2" src="img/logo.png"></a>
 			</myh2>
 		</div> <!-- NAVBAR HEADER -->
 		<div class="collapse navbar-collapse" id="myNavbar"> <!--COLLAPSED NAVBAR / MOBILE -->
