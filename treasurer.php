@@ -31,14 +31,17 @@
 					<h3>Treasurer</h3>
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/treasurer.php">
-					<div class="form-group">
-						<input type="radio" name="treasurer" id="pavlos" value="1" required>
-						<label for="pavlos" class="control-label">Pavlos Zoubouloglou</label>
-					</div>
-					<div class="form-group">
-						<input type="radio" name="treasurer" id="luis" value="2" required>
-						<label for="luis" class="control-label">Luìs Carvalho</label>
-					</div>
+				<!-- DYNAMIC CANDIDATES CREATION -->
+					<?php
+						$query = "SELECT * FROM ExternalVicePresidency WHERE 1";
+						$result = mysqli_query($con, $query);
+						while($row = mysqli_fetch_array($result)){
+							echo '<div class="form-group">';
+							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
+							echo '</div>';
+						}
+					?>
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>			
 					</div><!--MODAL FOOTER-->

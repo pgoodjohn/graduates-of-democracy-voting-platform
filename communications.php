@@ -31,10 +31,17 @@
 					<h3>Director of Communications</h3>
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/communications.php">
-					<div class="form-group">
-						<input type="radio" name="communications" id="hugo" value="1" required>
-						<label for="hugo" class="control-label">Hugo Decis</label>
-					</div>
+				<!-- DYNAMIC CANDIDATES CREATION -->
+					<?php
+						$query = "SELECT * FROM DirectorOfCommunications WHERE 1";
+						$result = mysqli_query($con, $query);
+						while($row = mysqli_fetch_array($result)){
+							echo '<div class="form-group">';
+							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
+							echo '</div>';
+						}
+					?>
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>
 						</form>

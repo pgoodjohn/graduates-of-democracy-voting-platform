@@ -31,18 +31,17 @@
 					<h3>Vice-President for Internal Coordination</h3>
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/int-vp.php">
-					<div class="form-group">
-						<input type="radio" name="int-vp" id="eva" value="1" required>
-						<label for="eva" class="control-label">Eva Amalija Oreskovic</label>
-					</div>
-					<div class="form-group">
-						<input type="radio" name="int-vp" id="kristjan" value="2" required>
-						<label for="kristjan" class="control-label">Kristjan Kalve</label>
-					</div>
-					<div class="form-group">
-						<input type="radio" name="int-vp" id="patrik" value="3" required>
-						<label for="patrik" class="control-label">Patrik Bole</label>
-					</div>
+				<!-- DYNAMIC CANDIDATES CREATION -->
+					<?php
+						$query = "SELECT * FROM InternalVicePresidency WHERE 1";
+						$result = mysqli_query($con, $query);
+						while($row = mysqli_fetch_array($result)){
+							echo '<div class="form-group">';
+							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
+							echo '</div>';
+						}
+					?>
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>
 						</form>

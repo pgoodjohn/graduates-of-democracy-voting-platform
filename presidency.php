@@ -31,18 +31,18 @@
 					<h3>Presidency</h3>
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/presidency.php">
-					<div class="form-group">
-						<input type="radio" name="presidency" id="mu-hamid" value="1" required>
-						<label for="mu-hamid" class="control-label">Mu-hamid Pathan</label>
-					</div>
-					<div class="form-group">
-						<input type="radio" name="presidency" id="kuba" value="2" required>
-						<label for="kuba" class="control-label">Kuba Sta</label>
-					</div>
-					<div class="form-group">
-						<input type="radio" name="presidency" id="robert" value="3" required>
-						<label for="robert" class="control-label">Robert Zielonka</label>
-					</div>
+					<!-- DYNAMIC CANDIDATES CREATION -->
+					<?php
+						$query = "SELECT * FROM Presidency WHERE 1";
+						$result = mysqli_query($con, $query);
+						while($row = mysqli_fetch_array($result)){
+							echo '<div class="form-group">';
+							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
+							echo '</div>';
+						}
+
+					?>
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>			
 					</div><!--MODAL FOOTER-->
