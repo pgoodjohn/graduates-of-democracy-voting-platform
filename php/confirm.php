@@ -276,7 +276,7 @@ updateTreasurerVotes($_SESSION['treasurer'], $treasurerVotes);
 echo '<br>Treasurer votes updated!<br>';
 
 $UserId = $_SESSION['User'];
-$query = "UPDATE `User` SET `HasVoted` = '1' WHERE `User`.`UserId` = '$UserId'"; 
+$query = "UPDATE `User` SET `HasVoted` = '0' WHERE `User`.`UserId` = '$UserId'"; 
 mysqli_query($con, $query);
 
 session_unset();
