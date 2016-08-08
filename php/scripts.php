@@ -161,6 +161,23 @@ function getExternalVPById($Id){
 
 }
 
+function getStructVPById($Id){
+  global $con;
+  
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM StructVicePresidency WHERE UserId = ?")){
+    /* bind parameters for markers */
+    mysqli_stmt_bind_param($stmt, "s", $Id);
+    /* execute query */
+    mysqli_stmt_execute($stmt);
+    /* bind result variables */
+    mysqli_stmt_bind_result($stmt, $id);
+    /* fetch value */
+    mysqli_stmt_fetch($stmt);
+  }
+
+  return $id;
+
+}
 function getEditorInChiefById($Id){
   global $con;
   
