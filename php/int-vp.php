@@ -13,7 +13,7 @@ $_SESSION['int-vp'] = $_POST['int-vp'];
 
 print_r($_SESSION);
 
-header("Location:../editor.php");
+header("Location:../struct.php");
 exit;
 
 ?>
