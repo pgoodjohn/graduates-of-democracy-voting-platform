@@ -46,6 +46,7 @@
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Continue</button>			
 						</form>
+						<p>In order to vote, insert your name, email and code as they were written in the email that was sent to you. In each page you will be prompted to choose one and only one candidate for each position. After choosing one for each position you will be asked to confirm your votes and, by clicking confirm, your votes will be submitted and you won't be able to login.<br>If you have problems logging in, please send an email at ... and we will fix your problem as soon as possible.</p>
 					</div><!--MODAL FOOTER-->
 		</div>
 		<div class="col-sm-2"></div>
