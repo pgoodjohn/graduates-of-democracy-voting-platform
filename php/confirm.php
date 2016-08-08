@@ -121,6 +121,46 @@ function updateIntVPVotes($Id, $presidentVotes){
 		}
 	}
 
+function getStructVPVotes($Id){
+  global $con;
+  
+  if ($stmt = mysqli_prepare($con, "SELECT Votes FROM StructVicePresidency WHERE UserId = ?")){
+    /* bind parameters for markers */
+    mysqli_stmt_bind_param($stmt, "s", $Id);
+    /* execute query */
+    mysqli_stmt_execute($stmt);
+    /* bind result variables */
+    mysqli_stmt_bind_result($stmt, $id);
+    /* fetch value */
+    mysqli_stmt_fetch($stmt);
+  }
+
+  return $id;
+
+}
+
+function updateStructVPVotes($Id, $presidentVotes){
+		global $con;
+		/* create a prepared statement */
+		if ($stmt = mysqli_prepare($con, "UPDATE `StructVicePresidency` SET `Votes` = ? WHERE `UserId` = ? ")) {
+			/* bind parameters for markers */
+			if(!mysqli_stmt_bind_param($stmt, "ii", $presidentVotes, $Id)){
+				echo "Binding parameters failed (" . $stmt.errno . ") " . $stmt->error . '<br>';	
+			}
+			/* execute query */
+			if(!mysqli_stmt_execute($stmt)){
+				echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';	
+			}
+			/* closes statement and frees $stmt variable*/
+			mysqli_stmt_close($stmt);
+		}
+		else{
+			//TODO REDIRECT TO HOMEPAGE SHOWING ERROR
+			$error = "Unable to prepare the Mysqli statement";
+		}
+	}
+
+
 function getEditorVotes($Id){
   global $con;
   
@@ -251,10 +291,16 @@ $extVicePresidentVotes++;
 updateExtVPVotes($_SESSION['ext-vp'], $extVicePresidentVotes);
 echo '<br>External Vice-President votes updated!<br>';
 
-$intVicePresidentVotes = getIntVPVotes($_SESSION['ext-vp']);
+$intVicePresidentVotes = getIntVPVotes($_SESSION['int-vp']);
 $intVicePresidentVotes++;
 
 updateIntVPVotes($_SESSION['int-vp'], $intVicePresidentVotes);
+echo '<br>Internal Vice-President votes updated!<br>';
+
+$structVicePresidentVotes = getStructVPVotes($_SESSION['struct']);
+$structVicePresidentVotes++;
+
+updateStructVPVotes($_SESSION['struct'], $structVicePresidentVotes);
 echo '<br>Internal Vice-President votes updated!<br>';
 
 $editorVotes = getEditorVotes($_SESSION['editor']);
@@ -263,13 +309,13 @@ $editorVotes++;
 updateEditorVotes($_SESSION['editor'], $editorVotes);
 echo '<br>Editor votes updated!<br>';
 
-$communicationsVotes = getCommunicationsVotes($_SESSION['editor']);
+$communicationsVotes = getCommunicationsVotes($_SESSION['communications']);
 $communicationsVotes++;
 
 updateCommunicationsVotes($_SESSION['communications'], $communicationsVotes);
 echo '<br>Communications votes updated!<br>';
 
-$treasurerVotes = getTreasurerVotes($_SESSION['editor']);
+$treasurerVotes = getTreasurerVotes($_SESSION['treasurer']);
 $treasurerVotes++;
 
 updateTreasurerVotes($_SESSION['treasurer'], $treasurerVotes);
