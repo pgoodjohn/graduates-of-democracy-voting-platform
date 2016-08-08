@@ -38,6 +38,7 @@
 					<p>Pesident: <b><?php print_r(getPresidentById($_SESSION['presidency']));?></b></p>
 						<p>Vice-Precident for Internal Communications: <b><?php print_r(getInternalVPById($_SESSION['int-vp']));?></b></p>
 						<p>Vice-President for External Communications: <b><?php print_r(getExternalVPById($_SESSION['ext-vp']));?></b></p>
+						<p>Vice-President for Structural Reformation: <b><?php print_r(getStructVPById($_SESSION['struct']));?></b></p>
 						<p>Editor-In-Chief: <b><?php print_r(getEditorInChiefById($_SESSION['editor']));?></b></p>
 						<p>Directors of Communications: <b><?php print_r(getDirectorOfCommunicationsById($_SESSION['communications']));?></b></p>
 						<p>Treasurer: <b><?php print_r(getTreasurerById($_SESSION['treasurer']));?></b></p>
