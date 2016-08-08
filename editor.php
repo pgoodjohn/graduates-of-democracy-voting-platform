@@ -37,7 +37,7 @@
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
-							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<input type="radio" name="editor" id="' . $row['UserId'] . "\" value=\"" . $row['UserId'] . '" required>';
 							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
 							echo '</div>';
 						}

@@ -28,7 +28,7 @@
 		<div class="col-sm-8">
 			<div class="panel panel-info">
 				<div class="panel panel-heading text-center">
-					<h3>Presidency</h3>
+					<h3>President</h3>
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/presidency.php">
 					<!-- DYNAMIC CANDIDATES CREATION -->
@@ -37,7 +37,7 @@
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
-							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . "\" value=\"" . $row['UserId'] . '" required>';
 							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
 							echo '</div>';
 						}

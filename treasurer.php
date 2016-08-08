@@ -33,11 +33,11 @@
 				<form data-toggle="validator" role="form" method="POST" action="php/treasurer.php">
 				<!-- DYNAMIC CANDIDATES CREATION -->
 					<?php
-						$query = "SELECT * FROM ExternalVicePresidency WHERE 1";
+						$query = "SELECT * FROM Treasurer WHERE 1";
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
-							echo '<input type="radio" name="presidency" id="' . $row['UserId'] . " value="' . $row['UserId'] . " required>';
+							echo '<input type="radio" name="treasurer" id="' . $row['UserId'] . "\" value=\"" . $row['UserId'] . '" required>';
 							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
 							echo '</div>';
 						}
