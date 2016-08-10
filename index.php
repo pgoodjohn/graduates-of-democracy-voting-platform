@@ -43,11 +43,13 @@
 						<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 						<div class="help-block with-errors"></div>
 					</div>
+					<div class="form-group">
+						<p>In order to vote, insert your name, email address and code as they were written in the email that was sent to you. In each page you will be prompted to choose one and only one candidate for each position. Afterwards you will be asked to confirm your votes and, by clicking 'Confirm', your votes will be submitted and you won't be able to login. If you are not sure of your votes, you can click 'Home' at the top right corner and start the process again.<br>If you have problems logging in, please send an email at schoolofdemocracy2015@gmail.com and we will fix your problem as soon as possible.</p>
+					</div>	
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Continue</button>			
 						</form>
-						<p>In order to vote, insert your name, email and code as they were written in the email that was sent to you. In each page you will be prompted to choose one and only one candidate for each position. After choosing one for each position you will be asked to confirm your votes and, by clicking confirm, your votes will be submitted and you won't be able to login.<br>If you have problems logging in, please send an email at ... and we will fix your problem as soon as possible.</p>
-					</div><!--MODAL FOOTER-->
+				</div><!--MODAL FOOTER-->
 		</div>
 		<div class="col-sm-2"></div>
 	</div>
