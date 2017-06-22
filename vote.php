@@ -28,23 +28,22 @@
 		<div class="col-sm-8">
 			<div class="panel panel-info">
 				<div class="panel panel-heading text-center">
-					<h3>Vice-President for Internal Coordination</h3>
+					<h3>Treasurer</h3>
 				</div> <!--PANEL HEADER-->
-				<form data-toggle="validator" role="form" method="POST" action="php/int-vp.php">
+				<form data-toggle="validator" role="form" method="POST" action="php/treasurer.php">
 				<!-- DYNAMIC CANDIDATES CREATION -->
 					<?php
-						$query = "SELECT * FROM InternalVicePresidency WHERE 1";
+						$query = "SELECT * FROM Candidates";
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
-							echo '<input type="radio" name="int-vp" id="' . $row['UserId'] . "\" value=\"" . $row['UserId'] . '" required>';
+							echo '<input type="radio" name="treasurer" id="' . $row['UserId'] . "\" value=\"" . $row['UserId'] . '" required>';
 							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
 							echo '</div>';
 						}
 					?>
 					<div class="modal-footer">
-						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>
-						</form>
+						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Submit and continue</button>			
 					</div><!--MODAL FOOTER-->
 		</div>
 		<div class="col-sm-2"></div>
