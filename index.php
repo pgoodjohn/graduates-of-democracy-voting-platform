@@ -44,7 +44,12 @@
 						<div class="help-block with-errors"></div>
 					</div>
 					<div class="form-group">
-						<p>In order to vote, insert your name, email address and code as they were written in the email that was sent to you. In each page you will be prompted to choose one and only one candidate for each position. Afterwards you will be asked to confirm your votes and, by clicking 'Confirm', your votes will be submitted and you won't be able to login. If you are not sure of your votes, you can click 'Home' at the top right corner and start the process again.<br>If you have problems logging in, please send an email at schoolofdemocracy2015@gmail.com and we will fix your problem as soon as possible.</p>
+						<p>
+							Dear Graduate of Democracy,<br>
+Until July 10, 2017 you can vote for the new board of the Graduates of Democracy 2017/18. Seven people will be elected, and you have a maximum of 7 votes to give. You can vote only one candidate, or you can vote up to 7 different candidates.<br>
+Please contact Cecilia Passaniti (<a href="mailto:vp.ext.graduatesofdemocracy@gmail.com">vp.ext.graduatesofdemocracy@gmail.com</a>) if you have any question.<br>
+The 2016/2017 Board of the Graduates of Democracy<br>
+						</p>
 					</div>	
 					<div class="modal-footer">
 						<button class="btn btn-default" type="submit" id="button" name="submit" value="continue">Continue</button>			
