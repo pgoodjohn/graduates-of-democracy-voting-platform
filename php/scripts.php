@@ -163,4 +163,26 @@ function incrementVotesBy($id){
     }
 }
 
+  function Generate16CharId(){
+    /*GENERATE RANDOM TOKEN FUNCTION
+      *USING PHP 7.0 RANDOM FUNCTION GENERATES A CRYPTOGRAPHIC KEY TO BE USED AS A TOKEN FOR THE LOGIN
+      *THE FUNCTION RETURNS A BINARY STRING SO IT GETS CONVERTED WITH THE BIN2HEX FUNCTION
+      *THE GENERATED SALT IS 16 CHARACHTERS LONG
+    */
+    try {
+      $string = random_bytes(8);
+    } catch (TypeError $e) {
+      // Well, it's an integer, so this IS unexpected.
+      die("An unexpected error has occurred");
+    } catch (Error $e) {
+      // This is also unexpected because 32 is a reasonable integer.
+      die("An unexpected error has occurred");
+    } catch (Exception $e) {
+      // If you get this message, the CSPRNG failed hard.
+      die("Could not generate a random string. Is our OS secure?");
+    }
+    $string = bin2hex($string);
+    return $string;
+  }
+
 ?>
