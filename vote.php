@@ -30,15 +30,15 @@
 				<div class="panel panel-heading text-center">
 					<h3>Candidates</h3>
 				</div> <!--PANEL HEADER-->
-				<form data-toggle="validator" role="form" method="POST" action="php/treasurer.php">
+				<form data-toggle="validator" role="form" method="POST" action="php/vote.php">
 				<!-- DYNAMIC CANDIDATES CREATION -->
 					<?php
 						$query = "SELECT * FROM Candidates";
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
-							echo '<input type="checkbox" name="candidate" id="' . $row['id'] . "\" value=\"" . $row['id'] . '">';
-							echo '<label for="' . $row['id'] . '" class="control-label">' . $row['name'] . '</label>';
+							echo '<input class="candidate" type="checkbox" name="candidate[]" id="' . $row['id'] . "\" value=\"" . $row['id'] . '">';
+							echo '<label for="' . $row['id'] . '" class="control-label">' . ucwords($row['name']) . '</label>';
 							echo '</div>';
 						}
 					?>
@@ -52,13 +52,10 @@
 	<?php include_once("footer.php");?>
 </body>
 <script>
-$("input[name=candidate]").change(function(){
-    var max= 7;
-    if( $("input[name=candidate]:checked").length == max ){
-        $("input[name=candidate]").attr('disabled', 'disabled');
-        $("input[name=candidate]:checked").removeAttr('disabled');
-    }else{
-         $("input[name=candidate]").removeAttr('disabled');
+$('input[type=checkbox]').on('change', function (e) {
+    if ($('input[type=checkbox]:checked').length > 7) {
+        $(this).prop('checked', false);
+        alert("You are allowed to select a max of 7 candidates!");
     }
 });
 </script>
