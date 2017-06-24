@@ -10,8 +10,8 @@
 		file_put_contents($logfile, $txt, FILE_APPEND);
 	}
 
-	$beginningDate = "2016-08-10 06:00:00";
-	$endingDate = "2017-08-14 21:59:59";
+	$beginningDate = "2017-06-26 06:00:00";
+	$endingDate = "2017-07-10 21:59:59";
 	$now = date("Y-m-d H:i:s");
 
 	if($now < $beginningDate){
@@ -61,7 +61,6 @@
 	$hasVoted = getHasVotedByUserId($UserId);
 
 	if($hasVoted == 1){
-		//TODO LOG THAT TRIED TO VOTE AGAIN
 		header("Location:../error.php?err_type=3");
 		exit;
 	}
@@ -73,4 +72,3 @@
 	header("Location:../vote.php");
 	exit;
 	
-?>
