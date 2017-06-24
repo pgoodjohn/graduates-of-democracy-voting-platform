@@ -11,7 +11,7 @@
 	}
 
 	$beginningDate = "2016-08-10 06:00:00";
-	$endingDate = "2016-08-14 21:59:59";
+	$endingDate = "2017-08-14 21:59:59";
 	$now = date("Y-m-d H:i:s");
 
 	if($now < $beginningDate){
@@ -58,11 +58,9 @@
 		exit;
 	}
 
-
-
 	$hasVoted = getHasVotedByUserId($UserId);
 
-	if($hasVoted == 0){
+	if($hasVoted == 1){
 		//TODO LOG THAT TRIED TO VOTE AGAIN
 		header("Location:../error.php?err_type=3");
 		exit;
@@ -72,7 +70,7 @@
 
 	$_SESSION['User'] = $UserId;
 	print_r($_SESSION);
-	header("Location:../presidency.php");
+	header("Location:../vote.php");
 	exit;
 	
 ?>
