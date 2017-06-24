@@ -6,7 +6,7 @@ function findEmailInDatabase($email){
   //RETURNS TRUE IF EMAIL IS NOT FOUND IN THE DATABASE
   global $con;
 
-  if ($stmt = mysqli_prepare($con, "SELECT Email FROM User WHERE Email=?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Email FROM user WHERE Email=?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $email);
     /* execute query */
@@ -27,7 +27,7 @@ function findEmailInDatabase($email){
 function getUserIdByEmail($email){
   global $con;
 
-  if ($stmt = mysqli_prepare($con, "SELECT Id FROM User WHERE Email=?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Id FROM user WHERE Email=?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $email);
     /* execute query */
@@ -45,7 +45,7 @@ function getUserIdByEmail($email){
 function getUniqueIdByUserId($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Code FROM User WHERE Id = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Code FROM user WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -63,7 +63,7 @@ function getUniqueIdByUserId($Id){
 function getHasVotedByUserId($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT HasVoted FROM User WHERE Id = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT HasVoted FROM user WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -81,7 +81,7 @@ function getHasVotedByUserId($Id){
 function getNameByUserId($UserId){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM User WHERE Id = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM user WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $UserId);
     /* execute query */
@@ -97,7 +97,7 @@ function getNameByUserId($UserId){
 function userHasVotedBy($id){
   global $con;
     /* create a prepared statement */
-    if($stmt = mysqli_prepare($con, "UPDATE User SET HasVoted=1 WHERE id=?")){
+    if($stmt = mysqli_prepare($con, "UPDATE user SET HasVoted=1 WHERE id=?")){
       /* bind parameters for markers */
       if(!mysqli_stmt_bind_param($stmt, "i", $id)){
         $error = "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
@@ -146,7 +146,7 @@ function CheckLogin(){
 function incrementVotesBy($id){
   global $con;
     /* create a prepared statement */
-    if($stmt = mysqli_prepare($con, "UPDATE Candidates SET votes=votes+1 WHERE id=?")){
+    if($stmt = mysqli_prepare($con, "UPDATE candidates SET votes=votes+1 WHERE id=?")){
       /* bind parameters for markers */
       if(!mysqli_stmt_bind_param($stmt, "i", $id)){
         $error = "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';

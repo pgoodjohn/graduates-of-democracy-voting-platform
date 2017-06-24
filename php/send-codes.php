@@ -14,24 +14,16 @@ $mail->Password = '7a3300a57f12503228049a3736239953';                           
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 25;                                    // TCP port to connect to
 $mail->Subject = 'Graduates Of Democracy Online Voting Platform Login Details';
-$mail->setFrom('noreply@graduates.com', 'Graduates Mailer');
+$mail->setFrom('bongiovanni.pietro.vc@gmail.com', 'Graduates of Democracy Mailer');
 $mail->isHTML(true);
 while($row = mysqli_fetch_array($result)){
 		print_r($row);
 
-		echo '<br>';
-
 		$email = strtolower($row['Email']);
-
-		echo '<b>Email</b>: ' . $email . '<br>';
 
 		$name = strtolower($row['Name']);
 
-		echo '<b>Name</b>: ' . $name .'<br>';
-
 		$token = Generate16CharId();
-
-		echo '<b>Password:</b> ' . $token . '<br>';
 
 		$mail->addAddress($email, ucwords($name));     // Add a recipient
 
@@ -45,15 +37,17 @@ while($row = mysqli_fetch_array($result)){
 		$mail->Body = $mailMessage;
 
 		if(!$mail->send()) {
+			echo $email;
 		    echo 'Message could not be sent.';
 		    echo 'Mailer Error: ' . $mail->ErrorInfo;
+		    die();
 		} else {
-		    echo 'Message has been sent';
+		    // echo 'Message has been sent';
 		}
 		
 		$encryptedToken = hash('sha512', $token);
 
-		$query = "UPDATE  `User` SET  `Code` =  '$encryptedToken' WHERE  `User`.`Email` ='$email'";
+		$query = "UPDATE  `user` SET  `Code` =  '$encryptedToken' WHERE  `user`.`Email` ='$email'";
 
 		mysqli_query($con, $query);
 }

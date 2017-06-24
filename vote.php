@@ -33,7 +33,7 @@
 				<form data-toggle="validator" role="form" method="POST" action="php/vote.php">
 				<!-- DYNAMIC CANDIDATES CREATION -->
 					<?php
-						$query = "SELECT * FROM Candidates";
+						$query = "SELECT * FROM candidates";
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
