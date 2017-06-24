@@ -78,6 +78,42 @@ function getHasVotedByUserId($Id){
 
 }
 
+function getNameByUserId($UserId){
+  global $con;
+  
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM User WHERE Id = ?")){
+    /* bind parameters for markers */
+    mysqli_stmt_bind_param($stmt, "s", $UserId);
+    /* execute query */
+    mysqli_stmt_execute($stmt);
+    /* bind result variables */
+    mysqli_stmt_bind_result($stmt, $id);
+    /* fetch value */
+    mysqli_stmt_fetch($stmt);
+  }
+  return $id;
+}
+
+function userHasVotedBy($id){
+  global $con;
+    /* create a prepared statement */
+    if($stmt = mysqli_prepare($con, "UPDATE User SET HasVoted=1 WHERE id=?")){
+      /* bind parameters for markers */
+      if(!mysqli_stmt_bind_param($stmt, "i", $id)){
+        $error = "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
+      }
+      /* execute query */
+      if(!mysqli_stmt_execute($stmt)){
+        $error = "Execute failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
+      }
+      /* closes statement and frees $stmt variable*/
+      mysqli_stmt_close($stmt);
+    }
+    else{
+      $error = "Preparing statement failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
+    }
+}
+
 // Function to get the client IP address
 function getClientIp() {
     $ipaddress = '';
@@ -107,148 +143,24 @@ function CheckLogin(){
   }
 }
 
-function getPresidentById($Id){
+function incrementVotesBy($id){
   global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM Presidency WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
+    /* create a prepared statement */
+    if($stmt = mysqli_prepare($con, "UPDATE Candidates SET votes=votes+1 WHERE id=?")){
+      /* bind parameters for markers */
+      if(!mysqli_stmt_bind_param($stmt, "i", $id)){
+        $error = "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
+      }
+      /* execute query */
+      if(!mysqli_stmt_execute($stmt)){
+        $error = "Execute failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
+      }
+      /* closes statement and frees $stmt variable*/
+      mysqli_stmt_close($stmt);
+    }
+    else{
+      $error = "Preparing statement failed: (" . $stmt->errno . ") " . $stmt->error . '<br>';
+    }
 }
-
-function getInternalVPById($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM InternalVicePresidency WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-
-function getExternalVPById($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM ExternalVicePresidency WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-
-function getStructVPById($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM StructVicePresidency WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-function getEditorInChiefById($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM EditorInChief WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-
-function getDirectorOfCommunicationsById($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM DirectorOfCommunications WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-
-function getTreasurerById($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM Treasurer WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-
-function getNameByUserId($Id){
-  global $con;
-  
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM User WHERE Id = ?")){
-    /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $Id);
-    /* execute query */
-    mysqli_stmt_execute($stmt);
-    /* bind result variables */
-    mysqli_stmt_bind_result($stmt, $id);
-    /* fetch value */
-    mysqli_stmt_fetch($stmt);
-  }
-
-  return $id;
-
-}
-
 
 ?>
