@@ -1,8 +1,8 @@
 <?php
 	include_once 'php/scripts.php';
-//	if(!CheckLogin()){
-//		header("Location:index.php");
-//	}
+	if(!CheckLogin()){
+		header("Location:index.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>
