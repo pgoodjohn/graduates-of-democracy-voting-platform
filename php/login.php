@@ -29,7 +29,7 @@
 
 	echo $email . '<br>';
 
-	$code = hash('sha512', $_POST['code']);
+	$code = hash('md5', $_POST['code']);
 
 	echo $code . '<br>';
 
@@ -51,6 +51,7 @@
 
 	$token = getUniqueIdByUserId($UserId);
 
+	echo 'Stored';
 	echo $token . '<br>';
 
 	if($code != $token){

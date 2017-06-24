@@ -45,7 +45,7 @@ while($row = mysqli_fetch_array($result)){
 		    // echo 'Message has been sent';
 		}
 		
-		$encryptedToken = hash('sha512', $token);
+		$encryptedToken = hash('md5', $token);
 
 		$query = "UPDATE  `user` SET  `Code` =  '$encryptedToken' WHERE  `user`.`Email` ='$email'";
 
