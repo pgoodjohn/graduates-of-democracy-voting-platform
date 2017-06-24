@@ -3,18 +3,19 @@
 include 'scripts.php';
 include 'PHPMailer/PHPMailerAutoload.php';
 
-$query = "SELECT * FROM User";
+$query = "SELECT * FROM user";
 $result = mysqli_query($con, $query);
 $mail = new PHPMailer;
 $mail->isSMTP();
-$mail->Host = '	smtp.mailtrap.io';  // Specify main and backup SMTP servers
+$mail->Host = 'in-v3.mailjet.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = '6a0b9f3e7808fa';                 // SMTP username
-$mail->Password = '03c2a293843478';                           // SMTP password
+$mail->Username = 'b902bb928d2598014467825e2a9fa25c';                 // SMTP username
+$mail->Password = '7a3300a57f12503228049a3736239953';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 25;                                    // TCP port to connect to
 $mail->Subject = 'Graduates Of Democracy Online Voting Platform Login Details';
 $mail->setFrom('noreply@graduates.com', 'Graduates Mailer');
+$mail->isHTML(true);
 while($row = mysqli_fetch_array($result)){
 		print_r($row);
 
@@ -38,7 +39,7 @@ while($row = mysqli_fetch_array($result)){
 		$mailMessage .= '<b>Name: </b>' . ucwords($name) . '<br>';
 		$mailMessage .= '<b>Email: </b>' . $email . '<br>';
 		$mailMessage .= '<b>Password: </b>' . $token . '<br>';
-		$mailMessage .= 'In order to vote, click <a href="bit.ly/graduatesOfDemocracy2016">here</a> or copy the following link in your address bar: <br> bit.ly/graduatesOfDemocracy2016</p><p>Voting will be open from 10 August 2016, 08:00 CET to 14 August 2016, 23:59 CET.</p>
+		$mailMessage .= 'In order to vote, click <a href="http://bit.ly/graduates2017">here</a> or copy the following link in your address bar: <br> http://bit.ly/graduates2017</p><p>Voting will be open from 10 August 2016, 08:00 CET to 14 August 2016, 23:59 CET.</p>
 			<p>Please, do not open the link beforehand.</p></body></html>';
 
 		$mail->Body = $mailMessage;
