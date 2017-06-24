@@ -1,8 +1,8 @@
 <?php
 	include_once 'php/scripts.php';
-	if(!CheckLogin()){
-		header("Location:index.php");
-	}
+//	if(!CheckLogin()){
+//		header("Location:index.php");
+//	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,7 @@
 		<div class="col-sm-8">
 			<div class="panel panel-info">
 				<div class="panel panel-heading text-center">
-					<h3>Treasurer</h3>
+					<h3>Candidates</h3>
 				</div> <!--PANEL HEADER-->
 				<form data-toggle="validator" role="form" method="POST" action="php/treasurer.php">
 				<!-- DYNAMIC CANDIDATES CREATION -->
@@ -37,8 +37,8 @@
 						$result = mysqli_query($con, $query);
 						while($row = mysqli_fetch_array($result)){
 							echo '<div class="form-group">';
-							echo '<input type="radio" name="treasurer" id="' . $row['UserId'] . "\" value=\"" . $row['UserId'] . '" required>';
-							echo '<label for="' . $row['UserId'] . '" class="control-label">' . $row['Name'] . '</label>';
+							echo '<input type="checkbox" name="candidate" id="' . $row['id'] . "\" value=\"" . $row['id'] . '">';
+							echo '<label for="' . $row['id'] . '" class="control-label">' . $row['name'] . '</label>';
 							echo '</div>';
 						}
 					?>
@@ -51,4 +51,15 @@
 
 	<?php include_once("footer.php");?>
 </body>
+<script>
+$("input[name=candidate]").change(function(){
+    var max= 7;
+    if( $("input[name=candidate]:checked").length == max ){
+        $("input[name=candidate]").attr('disabled', 'disabled');
+        $("input[name=candidate]:checked").removeAttr('disabled');
+    }else{
+         $("input[name=candidate]").removeAttr('disabled');
+    }
+});
+</script>
 </html>
