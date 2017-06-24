@@ -27,7 +27,7 @@ function findEmailInDatabase($email){
 function getUserIdByEmail($email){
   global $con;
 
-  if ($stmt = mysqli_prepare($con, "SELECT UserId FROM User WHERE Email=?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Id FROM User WHERE Email=?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $email);
     /* execute query */
@@ -42,12 +42,12 @@ function getUserIdByEmail($email){
 
 }
 
-function getUniqueIdByUserId($UserId){
+function getUniqueIdByUserId($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Code FROM User WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Code FROM User WHERE Id = ?")){
     /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $UserId);
+    mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
     mysqli_stmt_execute($stmt);
     /* bind result variables */
@@ -60,12 +60,12 @@ function getUniqueIdByUserId($UserId){
 
 }
 
-function getHasVotedByUserId($UserId){
+function getHasVotedByUserId($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT HasVoted FROM User WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT HasVoted FROM User WHERE Id = ?")){
     /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $UserId);
+    mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
     mysqli_stmt_execute($stmt);
     /* bind result variables */
@@ -110,7 +110,7 @@ function CheckLogin(){
 function getPresidentById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM Presidency WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM Presidency WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -128,7 +128,7 @@ function getPresidentById($Id){
 function getInternalVPById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM InternalVicePresidency WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM InternalVicePresidency WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -146,7 +146,7 @@ function getInternalVPById($Id){
 function getExternalVPById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM ExternalVicePresidency WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM ExternalVicePresidency WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -164,7 +164,7 @@ function getExternalVPById($Id){
 function getStructVPById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM StructVicePresidency WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM StructVicePresidency WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -181,7 +181,7 @@ function getStructVPById($Id){
 function getEditorInChiefById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM EditorInChief WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM EditorInChief WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -199,7 +199,7 @@ function getEditorInChiefById($Id){
 function getDirectorOfCommunicationsById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM DirectorOfCommunications WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM DirectorOfCommunications WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -217,7 +217,7 @@ function getDirectorOfCommunicationsById($Id){
 function getTreasurerById($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM Treasurer WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM Treasurer WHERE Id = ?")){
     /* bind parameters for markers */
     mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
@@ -232,12 +232,12 @@ function getTreasurerById($Id){
 
 }
 
-function getNameByUserId($UserId){
+function getNameByUserId($Id){
   global $con;
   
-  if ($stmt = mysqli_prepare($con, "SELECT Name FROM User WHERE UserId = ?")){
+  if ($stmt = mysqli_prepare($con, "SELECT Name FROM User WHERE Id = ?")){
     /* bind parameters for markers */
-    mysqli_stmt_bind_param($stmt, "s", $UserId);
+    mysqli_stmt_bind_param($stmt, "s", $Id);
     /* execute query */
     mysqli_stmt_execute($stmt);
     /* bind result variables */
